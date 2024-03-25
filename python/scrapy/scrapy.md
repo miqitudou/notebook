@@ -22,7 +22,7 @@ url_lst  > request > response > data
 
 5.pipeline
 
-###
+
 
 ##### 新建项目
 
@@ -129,9 +129,7 @@ class ImgDoneloadPipeline(ImagesPipeline):
         
     def item_completed(self,results,item,info): #返回文件的详细信息
         print(results)
-        
-    
-    
+        return item    #这里记得return给下个管道
 ```
 
 
