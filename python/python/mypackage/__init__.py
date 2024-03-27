@@ -1,0 +1,1 @@
+print('mypackage被导入了')
