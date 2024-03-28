@@ -20,7 +20,7 @@ class Course(Model):
     id = fields.IntField(pk=True)
     name = fields.CharField(max_length=32, description="课程名称")
     teacher = fields.ForeignKeyField("models.Teacher", )
-    # addr = fields.CharField(max_length=32, description="教室", default="")
+    addr = fields.CharField(max_length=32, description="教室", default="")
 
 
 class Clas(Model):

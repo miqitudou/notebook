@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from typing import List
 
-from fastapi import Form, File, UploadFile
+from fastapi import Form, File, UploadFile #这个才是常用的
 
 import os
 
@@ -30,8 +30,8 @@ async def get_files(files: List[bytes] = File()):
 
 @app05.post("/uploadFile")
 async def get_file(file: UploadFile):
-    # 适合小文件上传
-    print("file", file)
+    # 适合大文件上传
+    print("file", file) #拿到的是文件句柄
 
     path = os.path.join("imgs", file.filename)
     #  文件保存
@@ -46,7 +46,7 @@ async def get_file(file: UploadFile):
 
 @app05.post("/uploadFiles")
 async def getUploadFiles(files: List[UploadFile]):
-    # 适合小文件上传
+    # 适合大文件上传
     print("file", files)
 
     return {

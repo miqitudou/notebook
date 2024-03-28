@@ -43,13 +43,13 @@ async def getAllStudent():
     # print(stus)
 
     # (6) 一对多查询 多对多查询
-    alvin = await Student.get(name="alvin")
-    print(alvin.name)
-    print(alvin.sno)
-    print(await alvin.clas.values("name"))  # {'name': '计算机科学与技术2班'}
-    students = await Student.all().values("name", "clas__name")
-    print(await alvin.courses.all().values("name", "teacher__name"))
-    students = await Student.all().values("name", "clas__name", "courses__name")
+    # alvin = await Student.get(name="alvin")
+    # print(alvin.name)
+    # print(alvin.sno)
+    # print(await alvin.clas.values("name"))  # {'name': '计算机科学与技术2班'}
+    # students = await Student.all().values("name", "clas__name")
+    # print(await alvin.courses.all().values("name", "teacher__name"))
+    # students = await Student.all().values("name", "clas__name", "courses__name")
 
     return students
 

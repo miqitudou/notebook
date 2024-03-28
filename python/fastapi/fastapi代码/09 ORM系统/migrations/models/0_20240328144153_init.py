@@ -1,5 +1,9 @@
--- upgrade --
-CREATE TABLE IF NOT EXISTS `clas` (
+from tortoise import BaseDBAsyncClient
+
+
+async def upgrade(db: BaseDBAsyncClient) -> str:
+    return """
+        CREATE TABLE IF NOT EXISTS `clas` (
     `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(32) NOT NULL  COMMENT '班级名称'
 ) CHARACTER SET utf8mb4;
@@ -34,4 +38,9 @@ CREATE TABLE IF NOT EXISTS `student_course` (
     `course_id` INT NOT NULL,
     FOREIGN KEY (`student_id`) REFERENCES `student` (`id`) ON DELETE CASCADE,
     FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE
-) CHARACTER SET utf8mb4;
+) CHARACTER SET utf8mb4;"""
+
+
+async def downgrade(db: BaseDBAsyncClient) -> str:
+    return """
+        """

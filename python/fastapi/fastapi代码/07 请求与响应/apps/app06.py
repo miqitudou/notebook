@@ -20,4 +20,5 @@ async def items(request: Request):
         "客户端IP地址:": request.client.host,
         "客户端宿主": request.headers.get("user-agent"),
         "cookies": request.cookies.get("a"),
+        "headers": request.headers,
     }

@@ -39,4 +39,4 @@ def index(request: Request):
 
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", port=8090, debug=True, reload=True)
+    uvicorn.run("main:app", port=8090, reload=True)

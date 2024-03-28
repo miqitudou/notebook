@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from typing import Union, Optional
-from pydantic import BaseModel, Field, validator, validator
+from pydantic import BaseModel, Field, validator
 from datetime import date
 from typing import List
 
@@ -13,11 +13,12 @@ class Addr(BaseModel):
 
 
 class User(BaseModel):
+    # 没有默认值的就是必填参数
     # name: str = Field(regex="^a")
     name: str
-    age: int = Field(default=0, gt=0, lt=100)
+    age: int = Field(default=1, gt=0, lt=100)
     birth: Union[date, None] = None
-    friends: List[int] = []
+    friends: List[str] = [1,2,3] #这样123会转换成str
     description: Optional[str] = None
     addr: Addr
 
@@ -33,9 +34,10 @@ class Data(BaseModel):
 
 @app03.post("/user")
 async def user(user: User):
-    print(user, type(user))
-    print(user.name, user.birth)
-    print(user.dict())
+    # print(user, type(user))
+    print(user, type(user.birth))
+    # print(user.name, user.birth)
+    # print(user.dict())
     return user
 
 

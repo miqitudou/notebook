@@ -11,7 +11,7 @@ from apps.app07 import app07
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="statics"))
+app.mount("/static", StaticFiles(directory="statics"),name='static')
 
 app.include_router(app01, tags=["01 路径参数"])
 app.include_router(app02, tags=["02 查询参数"])
@@ -22,4 +22,4 @@ app.include_router(app06, tags=["06 Request对象"])
 app.include_router(app07, tags=["07 响应参数"])
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", port=8090, debug=True, reload=True)
+    uvicorn.run("main:app", port=8090, reload=True)

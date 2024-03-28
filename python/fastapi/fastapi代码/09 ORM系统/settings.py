@@ -6,8 +6,8 @@ TORTOISE_ORM = {
             'credentials': {
                 'host': '127.0.0.1',
                 'port': '3306',
-                'user': 'root',
-                'password': 'yuan0316',
+                'user': 'gaoyuan',
+                'password': 'miqi@1109.com',
                 'database': 'fastapi',
                 'minsize': 1,
                 'maxsize': 5,
@@ -18,7 +18,7 @@ TORTOISE_ORM = {
     },
     'apps': {
         'models': {
-            'models': ['models', "aerich.models"],
+            'models': ['models','aerich.models'],#这里放需要迁移的模型类
             'default_connection': 'default',
         }
     },
